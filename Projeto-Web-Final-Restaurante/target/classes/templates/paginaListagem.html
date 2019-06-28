@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/restauranteStyle.css">
+  <title>Document</title>
+</head>
+
+<body>
+    
+    <nav>
+        <ul class="lista-nav">
+             <li class="navegacao">
+                <a href="login">Login</a>
+            </li>
+            <li class="navegacao">
+                <a href="formulario">Formulário</a>
+            </li>
+            <li class="navegacao">
+                <a href="pratos">Pratos</a>
+            </li>
+        </ul>
+    </nav>
+
+
+	<table class="table">
+		<thead>
+			<tr>
+
+				<th scope="col">Codigo Usuario</th>
+				<th scope="col">Nome Usuario</th>
+				<th scope="col">CPF</th>
+				<th scope="col">Data Nascimento</th>
+				<th scope="col">Endereço</th>
+				<th scope="col">Email</th>
+				<th scope="col">Usuario</th> 
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each = "usuario : ${listaUsuario}">
+				<td th:text="${usuario.codigoUsuario}"></td>
+				<td th:text="${usuario.nomeUsuario}"></td>
+				<td th:text="${usuario.cpf}"></td>
+				<td th:text="${{usuario.dataNascimento}}"></td>
+				<td th:text="${usuario.endereco}"></td>
+				<td th:text="${usuario.email}"></td>
+				<td th:text="${usuario.roles}"></td>
+				<td th:text="${usuario.login}">
+				<td><a class="btn btn-danger" th:href="@{/usuario/excluir/{codigo}(codigo = ${usuario.codigoUsuario})}">Excluir</a></td>
+				<td><a class="btn btn-primary" th:href="@{/usuario/atualizar/{codigo}(codigo = ${usuario.codigoUsuario})}">Atualizar</a></td>
+			</tr>
+
+		</tbody>
+	</table>
+
+    <footer class="rodape">
+    	<div class="rodape-superior">
+	        Restaurante Delivery <br>
+	        Desde julho de 1998 <br>
+	        Telefones Para Contato do Restaurante: (88) 99999-9999 / (88) 98988-8998 <br>
+	        Site Desenvolvido por: Renan Gomes
+    	</div>
+    </footer>
+	<script src="../static/js/bootstrap.min.js"></script>
+</body>
+</html>

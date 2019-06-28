@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Appetito</title>
+</head>
+
+<style>
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: LightGoldenRodYellow;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    color: transparent;
+    z-index: 2;
+}
+
+.lista-nav {
+    position: sticky;
+    list-style-type: none;
+    overflow: hidden;
+    background-color: hsl(0, 60%, 45%);
+    width: 97%;
+}
+
+.logo-nav {
+    width: 10%;
+    float: left;
+}
+
+
+.navegacao {
+    float: right;
+}
+
+.navegacao a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 5px 5px;
+    margin: 13px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navegacao a:hover {
+    color: coral;
+}
+
+
+.rodape {
+    background-color: hsl(0, 60%, 45%);
+    width: 97%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    padding: 20px 20px;
+    margin-top: 60px;
+    text-align: center;
+}
+
+.rodape .rdp-direitos {
+    color: black;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.rodape .rodape-superior p {
+    display: inline-block;
+    color: white;
+    vertical-align: middle;
+    margin: 0;
+}
+
+</style>
+
+  <nav>
+    <ul class="lista-nav">
+      
+      <li class="navegacao">
+        <a href="login">Login</a>
+      </li>
+      <li class="navegacao">
+        <a href="formulario">Formulário</a>
+      </li>
+      <li class="navegacao">
+        <a href="pratos">Pratos</a>
+      </li>
+    </ul>
+  </nav>
+
+  Cadastrado com sucesso
+
+
+
+    <footer class="rodape">
+    	<div class="rodape-superior">
+	        Restaurante Delivery <br>
+	        Desde julho de 1998 <br>
+	        Telefones Para Contato do Restaurante: (88) 99999-9999 / (88) 98988-8998 <br>
+	        Site Desenvolvido por: Renan Gomes
+    	</div>>
+    </footer>
+  <script src="js/jquery-3.4.0.min.js"></script>
+  <script src="js/scripts.js"></script>
+
+</body>
+
+</html>

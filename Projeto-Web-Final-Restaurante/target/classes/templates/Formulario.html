@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/css/restauranteStyle.css">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">Delivery</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNav" aria-controls="navbarNav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="/usuario/home">Home </a></li>
+				<li class="nav-item"><a class="nav-link" href="/pratos/cardapio">Cardápio</a></li>
+				<li sec:authorize="!isAuthenticated()" class="nav-item"><a class="nav-link" href="/usuario/formulario">Cadastre-se</a></li>
+				<li sec:authorize="!isAuthenticated()" class="nav-item"><a class="nav-link" href="/usuario/logar">Login</a></li>
+				<li sec:authorize="hasRole('ROLE_GERENTE')" class="nav-item"><a class="nav-link" href="/pratos/formulario">Cadastrar Pratos</a></li>
+				<li sec:authorize="hasRole('ROLE_GERENTE')" class="nav-item"><a class="nav-link" href="/pratos/listar">Listar Pratos</a></li>
+				<li sec:authorize="hasRole('ROLE_CLIENTE')" class="nav-item"><a class="nav-link" href="/usuario/listarPedidos">Sacola de Compras</a></li>
+				<li sec:authorize="hasRole('ROLE_CLIENTE')" class="nav-item"><a class="nav-link" href="/usuario/logar?logout">Logout</a></li>
+				<li sec:authorize="hasRole('ROLE_GERENTE')" class="nav-item"><a class="nav-link" href="/usuario/logar?logout">Logout</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container my-5">
+		<center>
+			<h1>CADASTRE-SE AGORA!!!</h1>
+		</center>
+	</div>
+
+
+	<div class="container my-5">
+		<form action="/usuario/salvar" method="POST" th:object="${usuario}">
+			<div class="form-row">
+
+				<input type="hidden" th:field="*{codigoUsuario}" /> <br>
+				<div class="form-group col-md-6">
+					<label for="inputEmail4">Nome</label> <input type="text"
+						class="form-control" id="inputEmail4" placeholder="Nome"
+						th:field="*{nomeUsuario}" required>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="inputPassword4">CPF</label> <input type="text"
+						class="form-control" id="inputPassword4" placeholder="CPF"
+						th:field="*{cpf}" require>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="inputPassword4">Data de Nascimento</label> <input
+						type="text" class="form-control" id="inputPassword4"
+						placeholder="Data de Nascimento" th:field="*{dataNascimento}"
+						required>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="inputPassword4">Endereço</label> <input type="text"
+						class="form-control" id="inputPassword4" placeholder="Endereço"
+						th:field="*{endereco}" required>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="inputPassword4">Endereço Alternativo</label> <input
+						type="text" class="form-control" id="inputPassword4"
+						placeholder="Endereço Alternativo" required>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="inputPassword4">Usuário</label> <input type="text"
+						class="form-control" id="inputPassword4" placeholder="Usuário"
+						th:field="*{login}" required>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="inputPassword4">Senha</label> <input type="password"
+						class="form-control" id="inputPassword4" placeholder="Senha"
+						th:field="*{senha}" required>
+				</div>
+
+				<div class="form-group col-md-6">
+					<label for="inputPassword4">Email</label> <input type="email"
+						class="form-control" id="inputPassword4" placeholder="Email"
+						th:field="*{email}" required>
+				</div>
+
+
+			</div>
+
+			<button type="submit" class="btn btn-primary">Cadastrar</button>
+			<button type="reset" class="btn btn-danger	">Cancelar</button>
+		</form>
+	</div>
+
+	<script src="js/jquery-3.4.0.min.js"></script>
+	<script src="js/scripts.js"></script>
+</body>
+</html>
